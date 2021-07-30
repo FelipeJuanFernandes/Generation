@@ -1,0 +1,21 @@
+1 - programa
+{
+	
+	funcao inicio()
+	{
+		inteiro idade, meses, dias, resultadoDia
+
+		escreva("Entre com a sua idade")
+		escreva("\nEm anos: ")
+		leia(idade)
+		escreva("Em meses: ")
+		leia(meses)
+		escreva("Em dias: ")
+		leia(dias)
+
+		resultadoDia = 365 * idade
+
+		escreva("Você tem ", resultadoDia, " dias vividos")
+	}
+}
+2 - 
