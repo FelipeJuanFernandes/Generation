@@ -1,4 +1,4 @@
-package br.org.generation.blogpessoal.model;
+package br.com.minhalojadegames.model;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -24,37 +25,24 @@ public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-
-	@NotNull(message = "O atributo Nome é Obrigatório!")
+	
+	@NotBlank
 	private String nome;
-
-	@NotNull(message = "O atributo Usuário é Obrigatório!")
+	
+	@NotNull
 	private String usuario;
-
-	@NotNull(message = "O atributo Senha é Obrigatória!")
-	@Size(min = 8, message = "A Senha deve ter no mínimo 8 caracteres")
+	
+	@NotNull
+	@Size(min=6)
 	private String senha;
 	
 	@Column(name = "data_nascimento")
 	@JsonFormat(pattern = "yyyy-MM-dd")
-	@NotNull(message = "O atributo Data de Nascimento é Obrigatório!")
 	private LocalDate dataNascimento;
-
+	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
-	private List<Postagem> postagem;
-	
-	
-
-	public Usuario(long id, String nome,String usuario, String senha, LocalDate dataNascimento) {
-		this.id = id;
-		this.nome = nome;
-		this.usuario = usuario;
-		this.senha = senha;
-		this.dataNascimento = dataNascimento;
-	}
-	
-	public Usuario() {}
+	private List<Produto> produto;
 
 	public long getId() {
 		return id;
@@ -88,11 +76,19 @@ public class Usuario {
 		this.senha = senha;
 	}
 
-	public List<Postagem> getPostagem() {
-		return postagem;
+	public LocalDate getDataNascimento() {
+		return dataNascimento;
 	}
 
-	public void setPostagem(List<Postagem> postagem) {
-		this.postagem = postagem;
+	public void setDataNascimento(LocalDate dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
+
+	public List<Produto> getProduto() {
+		return produto;
+	}
+
+	public void setProduto(List<Produto> produto) {
+		this.produto = produto;
 	}
 }
