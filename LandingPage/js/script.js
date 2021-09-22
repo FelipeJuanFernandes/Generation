@@ -1,6 +1,7 @@
 let nome = document.querySelector('#nome')
 let email = document.querySelector('#email')
 
+//Validação da quantidade de caracteres no input nome
 function validaNome(){
     let txtNome = document.querySelector('#txtNome');
   
@@ -13,6 +14,7 @@ function validaNome(){
     }
   }
 
+  //Validação da inserção de caracteres especiais no email
   function validaEmail(){
     let txtEmail = document.querySelector('#txtEmail')
     if(email.value.indexOf('@') == -1 || email.value.indexOf('.') == -1) {
