@@ -35,6 +35,11 @@ public class Usuario {
 	@Size(min = 8, message = "A Senha deve ter no mínimo 8 caracteres")
 	private String senha;
 	
+	private String foto;
+	
+	private String tipo;
+	
+	
 	@Column(name = "data_nascimento")
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	@NotNull(message = "O atributo Data de Nascimento é Obrigatório!")
@@ -103,4 +108,21 @@ public class Usuario {
 	public void setPostagem(List<Postagem> postagem) {
 		this.postagem = postagem;
 	}
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+	
 }
